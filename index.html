@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sarathi ❤️ Ranjani</title>
+<style>
+body{
+    margin:0;
+    font-family:Segoe UI;
+    text-align:center;
+    background: linear-gradient(135deg,#ff6a88,#ff99ac);
+    color:white;
+    overflow:hidden;
+}
+
+#lockScreen{
+    margin-top:150px;
+}
+
+input{
+    padding:10px;
+    border-radius:20px;
+    border:none;
+    text-align:center;
+}
+
+button{
+    padding:10px 20px;
+    border:none;
+    border-radius:20px;
+    margin:10px;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+}
+
+.yes{
+    background:#ff004c;
+    color:white;
+}
+
+.no{
+    background:gray;
+    color:white;
+    position:absolute;
+}
+
+#mainPage{
+    display:none;
+    margin-top:100px;
+}
+
+img{
+    width:250px;
+    border-radius:20px;
+    box-shadow:0 0 30px purple;
+    margin-top:20px;
+}
+
+.glow{
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow{
+    from{ text-shadow:0 0 10px white;}
+    to{ text-shadow:0 0 30px purple;}
+}
+</style>
+</head>
+
+<body>
+
+<div id="lockScreen">
+    <h1>Enter Your Name 💜</h1>
+    <input type="text" id="nameInput" placeholder="Type here...">
+    <br>
+    <button onclick="unlock()">Open ❤️</button>
+</div>
+
+<div id="mainPage">
+    <h1 class="glow">Ranjani 💜</h1>
+    <h2>Be My Valentine? 💍</h2>
+    <button class="yes" onclick="showLove()">Yes 💖</button>
+    <button class="no" id="noBtn">No ❌</button>
+
+    <div id="loveSection" style="display:none;">
+        <h1 class="glow">I Love You Chloo 💜</h1>
+        <img src="ranjani.jpg">
+    </div>
+</div>
+
+<audio id="bgMusic" src="love.mp3" loop></audio>
+
+<script>
+function unlock(){
+    let name=document.getElementById("nameInput").value;
+    if(name.toLowerCase()=="ranjani"){
+        document.getElementById("lockScreen").style.display="none";
+        document.getElementById("mainPage").style.display="block";
+        document.getElementById("bgMusic").play();
+    }
+    else{
+        alert("Only Ranjani Can Open This 💜");
+    }
+}
+
+function showLove(){
+    document.getElementById("loveSection").style.display="block";
+}
+
+// No button run away
+let noBtn=document.getElementById("noBtn");
+noBtn.addEventListener("mouseover",function(){
+    noBtn.style.top=Math.random()*80+"%";
+    noBtn.style.left=Math.random()*80+"%";
+});
+</script>
+
+</body>
+</html>
+
